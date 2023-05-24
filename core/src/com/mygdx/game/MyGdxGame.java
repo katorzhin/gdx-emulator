@@ -21,6 +21,7 @@ public class MyGdxGame extends ApplicationAdapter {
     @Override
     public void render() {
         me.moveTo(inputProcessor.getDirection());
+        me.rotateTo(inputProcessor.getMousePos());
         ScreenUtils.clear(1, 1, 1, 1);
         batch.begin();
         me.render(batch);

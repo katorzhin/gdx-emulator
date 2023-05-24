@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
@@ -11,6 +12,11 @@ public class KeyboardAdapter extends InputAdapter {
     private boolean rightPressed;
 
     private final Vector2 direction = new Vector2();
+    private final Vector2 mousePos = new Vector2();
+
+    public Vector2 getMousePos() {
+        return mousePos;
+    }
 
     @Override
     public boolean keyDown(int keycode) {
@@ -48,6 +54,7 @@ public class KeyboardAdapter extends InputAdapter {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
+        mousePos.set(screenX, Gdx.graphics.getHeight()- screenY);
         return false;
     }
 
